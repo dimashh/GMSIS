@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<BorderPane xmlns="http://javafx.com/javafx/8.0.51" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gmsis.OverviewController">
+   <top>
+      <HBox styleClass="header-section, header-large" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <Text fx:id="title" text="Hello John" />
+      </HBox>
+   </top>
+   <center>
+      <VBox styleClass="vertical-dividers">
+         <HBox VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
+            <BorderPane HBox.hgrow="ALWAYS">
+               <top>
+                  <HBox styleClass="subheader-section">
+                     <Text fx:id="bookingTitle" text="Todays Bookings" />
+                  </HBox>
+               </top>
+               <center>
+                  <ScrollPane styleClass="list" fitToWidth="true" fitToHeight="true" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                     <VBox styleClass="list-view" HBox.hgrow="ALWAYS" fx:id="todaysBookings"/>
+                  </ScrollPane>
+               </center>
+            </BorderPane>
+         </HBox>
+         <HBox VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
+            <BorderPane HBox.hgrow="ALWAYS">
+               <top>
+                  <HBox styleClass="subheader-section">
+                     <Text text="Outstanding Bills" />
+                  </HBox>
+               </top>
+               <center>
+                  <ScrollPane styleClass="list" fitToWidth="true" fitToHeight="true" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                     <VBox styleClass="list-view" HBox.hgrow="ALWAYS" fx:id="billsList"/>
+                  </ScrollPane>
+               </center>
+            </BorderPane>
+         </HBox>
+         <HBox styleClass="button-bar, button-bar-alt">
+            <Button styleClass="button-large, button-primary" mnemonicParsing="false" onAction="#onNewCustomer" text="New Customer">
+               <graphic>
+                  <MaterialIconView glyphName="ADD_CIRCLE_OUTLINE" size="18px" glyphStyle="-fx-fill: white" />
+               </graphic>
+            </Button>
+            <Button styleClass="button-large, button-primary" mnemonicParsing="false" onAction="#onNewVehicle" text="New Vehicle">
+               <graphic>
+                  <MaterialIconView glyphName="ADD_CIRCLE_OUTLINE" size="18px" glyphStyle="-fx-fill: white" />
+               </graphic>
+            </Button>
+            <Button styleClass="button-large, button-primary" mnemonicParsing="false" onAction="#onNewBooking" text="New Booking">
+               <graphic>
+                  <MaterialIconView glyphName="ADD_CIRCLE_OUTLINE" size="18px" glyphStyle="-fx-fill: white" />
+               </graphic>
+            </Button>
+         </HBox>
+      </VBox>
+   </center>
+</BorderPane>

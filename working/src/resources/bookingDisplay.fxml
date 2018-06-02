@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import gmsis.diagrep.components.TimeSpinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<BorderPane xmlns="http://javafx.com/javafx/8.0.51" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gmsis.diagrep.DisplayBookingController">
+    <center>
+        <HBox HBox.hgrow="ALWAYS" styleClass="dividers">
+            <VBox BorderPane.alignment="CENTER" HBox.hgrow="ALWAYS">
+                <children>
+                    <HBox styleClass="subheader-section">
+                        <Text fx:id="bookingSubHeader" text="Booking" />
+                    </HBox>
+                    <GridPane hgap="10" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="128.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="275.0" minWidth="10.0" prefWidth="224.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <children>
+                            <Label text="Booking Type" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                <padding>
+                                    <Insets right="10.0" />
+                                </padding>
+                            </Label>
+                            <ChoiceBox fx:id="bookingField" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                            <Label text="Date" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                <padding>
+                                    <Insets right="10.0" />
+                                </padding>
+                            </Label>
+                            <DatePicker fx:id="dateField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                            <Label text="Time" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                <padding>
+                                    <Insets right="10.0" />
+                                </padding>
+                            </Label>
+                            <TimeSpinner fx:id="timeField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                            <Label text="Duration (minutes)" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+                                <padding>
+                                    <Insets right="10.0" />
+                                </padding>
+                            </Label>
+                            <Spinner fx:id="durationField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                            <Label alignment="CENTER" text="Assigned Mechanic" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+                                <padding>
+                                    <Insets right="10.0" />
+                                </padding>
+                            </Label>
+                            <ComboBox fx:id="mechanicChoiceBox" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                            <Label text="Customer" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+                                <padding>
+                                    <Insets right="10.0" />
+                                </padding>
+                            </Label>
+                            <TextField fx:id="customerField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                            <Label text="Vehicle" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+                                <padding>
+                                    <Insets right="10.0" />
+                                </padding>
+                            </Label>
+                            <ChoiceBox fx:id="vehicleChoiceBox" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                            <HBox spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                <Button fx:id="viewVehicleButton" mnemonicParsing="false" text="View Vehicle" />
+                                <Button fx:id="viewCustomerButton" mnemonicParsing="false" text="View Customer" />
+                            </HBox>
+
+
+                            <Label fx:id="mileageLabel" text="Current mileage" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
+                                <padding>
+                                    <Insets right="10.0" />
+                                </padding>
+                            </Label>
+                            <TextField fx:id="mileageField" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+
+                        </children>
+                        <padding>
+                            <Insets left="10.0" right="10.0" />
+                        </padding>
+                    </GridPane>
+                </children>
+            </VBox>
+            <VBox styleClass="last" fx:id="secondColumn" BorderPane.alignment="CENTER" HBox.hgrow="ALWAYS">
+                <children>
+                    <HBox styleClass="subheader-section">
+                        <Text text="Repairs" />
+                    </HBox>
+                    <TableView fx:id="bookingRepairTable">
+                        <columns>
+                            <TableColumn fx:id="partNameCol" text="Part Name" />
+                            <TableColumn fx:id="spcCol" text="Specialist Centre" />
+                            <TableColumn fx:id="priceCol" text="Price" />
+                        </columns>
+                    </TableView>
+
+                    <VBox fx:id="addRepairItemSection">
+                        <HBox>
+                            <fx:define>
+                                <ToggleGroup fx:id="itemRepairToggleGroup"/>
+                            </fx:define>
+                            <RadioButton fx:id="partRepairRadio" toggleGroup="$itemRepairToggleGroup" mnemonicParsing="false" text="Part Repair"/>
+                            <RadioButton fx:id="newPartRadio" toggleGroup="$itemRepairToggleGroup" mnemonicParsing="false" text="New Part"/>
+                            <RadioButton fx:id="vehicleRadio" toggleGroup="$itemRepairToggleGroup" mnemonicParsing="false" text="Vehicle"/>
+                        </HBox>
+                        <ComboBox fx:id="partComboBox" />
+                        <CheckBox fx:id="sendToSpcCheckBox" text="Send to Specialist Centre" />
+                        <VBox fx:id="spcFields" spacing="5">
+                            <HBox>
+                                <ComboBox fx:id="spcComboBox" />
+                                <TextField fx:id="spcPriceField" />
+                            </HBox>
+                            <HBox spacing="5">
+                                <DatePicker fx:id="spcDeliveryDate"/>
+                                <DatePicker fx:id="spcReturnDate"/>
+                            </HBox>
+                        </VBox>
+                        <HBox spacing="5">
+                            <Button mnemonicParsing="false" fx:id="addItemButton" onAction="#onAddItem" text="Add" />
+                            <Button mnemonicParsing="false" fx:id="deleteItemButton" onAction="#onDeleteItem" text="Delete" />
+                        </HBox>
+                    </VBox>
+
+                    <HBox styleClass="subheader-section">
+                        <Text text="Bill" />
+                    </HBox>
+                    <GridPane styleClass="bill-grid">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <children>
+                            <Label text="Mechanic Fee" GridPane.halignment="RIGHT" />
+                            <Label fx:id="mechanicPrice" text="£0" GridPane.columnIndex="1" />
+                            <Label text="Part Repair Total" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                            <Label fx:id="repairTotalPrice" text="£0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                            <Label text="Total" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                            <Label fx:id="totalPrice" text="£0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        </children>
+                    </GridPane>
+                </children>
+            </VBox>
+        </HBox>
+    </center>
+    <bottom>
+        <HBox styleClass="button-bar, last" BorderPane.alignment="CENTER" HBox.hgrow="ALWAYS">
+            <Button mnemonicParsing="false" fx:id="deleteButton" onAction="#onDelete" styleClass="button-danger" text="Delete" />
+            <Button mnemonicParsing="false" fx:id="discardButton" onAction="#onDiscard" styleClass="button-danger" text="Discard Changes" />
+            <Button mnemonicParsing="false" fx:id="saveButton" onAction="#onSave" styleClass="button-primary" text="Save Changes" />
+            <Button mnemonicParsing="false" fx:id="completedButton" onAction="#onSave" styleClass="button-primary" text="Complete" />
+        </HBox>
+    </bottom>
+</BorderPane>

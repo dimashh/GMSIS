@@ -1,0 +1,571 @@
+/* Global styles */
+/** {*/
+    /*-fx-border-color: red;*/
+    /*-fx-border-width: 1;*/
+/*}*/
+
+/**************************************
+******* BASE STYLES *******************
+***************************************/
+
+.root {
+    -fx-font-family: "Segoe UI Light";
+    -fx-font-smoothing-type: gray;
+
+    color-font-primary-light: #F4F2F2;
+    color-font-primary: #393E41;
+
+    color-primary-light: #E4E4E4;
+    color-primary: #393E41;
+    color-secondary: #2377cc;
+    color-grey: #ebebeb;
+    color-red: #f0506e;
+    color-accent: #33C3F0;
+
+    -fx-background-color: white;
+}
+
+.text {
+    -fx-font-smoothing-type: gray;
+}
+
+.scroll-pane {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.text-input,
+.choice-box,
+.combo-box {
+    -fx-background-color: white;
+    -fx-background-radius: 4;
+    -fx-border-width: 1;
+    -fx-border-color: #dbdbdb;
+    -fx-border-radius: 4;
+    -fx-padding: 5;
+    -fx-text-fill: color-font-primary;
+}
+
+.choice-box,
+.combo-box {
+    -fx-padding: 1 5 1 5;
+}
+
+.text-input:focused,
+.choice-box:focused,
+.combo-box:focused {
+    -fx-border-color: derive(color-accent, 20%);
+}
+
+.text-input:disabled,
+.date-cell:disabled > *,
+.choice-box:disabled,
+.combo-box-base:disabled,
+.list-cell:disabled,
+.list-cell:filled:selected:focused:disabled,
+.list-cell:filled:selected:disabled,
+.combo-box:disabled,
+.spinner:disabled {
+    -fx-opacity: 0.6;
+}
+
+.text-input:disabled {
+    -fx-border-color: transparent;
+}
+
+/**************************************
+******* BUTTONS ***********************
+***************************************/
+.button,
+.toggle-button {
+    -fx-alignment: CENTER;
+    /*-fx-content-display: CENTER;*/
+    -fx-padding: 5 10 5 10;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+
+    -fx-border-width: 1;
+    /*-fx-border-color: color-grey;*/
+    /*-fx-background-color: color-grey;*/
+    /*-fx-text-fill: color-font-primary;*/
+
+    -fx-border-color: color-grey;
+    -fx-background-color: white;
+    -fx-text-fill: color-font-primary;
+}
+
+.segmented-button .toggle-button.left-pill {
+    -fx-background-radius: 4 0 0 4;
+    -fx-border-radius: 4 0 0 4;
+}
+
+.segmented-button .toggle-button.center-pill {
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
+.segmented-button .toggle-button.right-pill {
+    -fx-background-radius: 0 4 4 0;
+    -fx-border-radius: 0 4 4 0;
+}
+
+.button {
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.button:hover,
+.toggle-button:hover {
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+
+    -fx-border-color: derive(color-grey, -20%);
+    /*-fx-background-color: derive(color-grey, -20%);*/
+}
+
+.button:focused,
+.toggle-button:focused {
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+
+    -fx-border-color: derive(color-grey, -20%);
+    /*-fx-background-color: derive(color-grey, -20%);*/
+}
+
+.button:armed,
+.button:disabled,
+.button.button-disabled,
+.toggle-button:selected {
+    -fx-border-color: derive(color-grey, -20%);
+    -fx-background-color: derive(color-grey, -20%);
+}
+
+/** Button modifier styles **/
+.button.button-rounded {
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+}
+
+.button.button-square {
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
+.button.button-large {
+    -fx-padding: 5 18 5 18;
+}
+
+.button.button-large.button-rounded {
+    -fx-background-radius: 24;
+    -fx-border-radius: 24;
+}
+
+/** Primary button **/
+.button.button-primary {
+    -fx-background-color: color-accent;
+    -fx-border-color: color-accent;
+    -fx-text-fill: color-font-primary-light;
+}
+
+.button.button-primary:hover {
+    -fx-background-color: derive(color-accent, -20%);
+    -fx-border-color: derive(color-accent, -20%);
+    -fx-text-fill: color-font-primary-light;
+}
+
+.button.button-primary.is-outlined {
+    -fx-background-color: white;
+    -fx-border-color: color-accent;
+    -fx-text-fill: color-accent;
+}
+
+.button.button-primary.is-outlined:hover {
+    -fx-border-color: color-accent;
+    -fx-background-color: color-accent;
+    -fx-text-fill: color-font-primary-light;
+}
+
+/** Action button **/
+.button.button-action {
+    -fx-background-color: color-secondary;
+    -fx-border-color: color-secondary;
+    -fx-text-fill: color-font-primary-light;
+}
+
+.button.button-action:hover {
+    -fx-background-color: derive(color-secondary, -20%);
+    -fx-border-color: derive(color-secondary, -20%);
+    -fx-text-fill: color-font-primary-light;
+}
+
+.button.button-action.is-outlined {
+    -fx-background-color: white;
+    -fx-border-color: color-secondary;
+    -fx-text-fill: color-secondary;
+}
+
+.button.button-action.is-outlined:hover {
+    -fx-border-color: color-secondary;
+    -fx-background-color: color-secondary;
+    -fx-text-fill: color-font-primary-light;
+}
+
+/** Danger button **/
+.button.button-danger {
+    -fx-background-color: color-red;
+    -fx-border-color: color-red;
+    -fx-text-fill: color-font-primary-light;
+}
+
+.button.button-danger:hover {
+    -fx-background-color: derive(color-red, -20%);
+    -fx-border-color: derive(color-red, -20%);
+    -fx-text-fill: color-font-primary-light;
+}
+
+.button.button-danger.is-outlined {
+    -fx-background-color: white;
+    -fx-border-color: color-red;
+    -fx-text-fill: color-red;
+}
+
+.button.button-danger.is-outlined:hover {
+    -fx-border-color: color-red;
+    -fx-background-color: color-red;
+    -fx-text-fill: color-font-primary-light;
+}
+
+/**************************************
+******* UTILS *************************
+***************************************/
+
+.center {
+    -fx-alignment: center;
+}
+
+.center-vertical {
+    -fx-alignment: center-left;
+}
+
+.dividers > * {
+    -fx-border-color: color-primary-light;
+    -fx-border-width: 0 1 0 0;
+}
+
+.dividers > *.last {
+    -fx-border-width: 0;
+}
+
+.vertical-dividers > * {
+    -fx-border-color: color-primary-light;
+    -fx-border-width: 0 0 1 0;
+}
+
+.vertical-dividers > *.last {
+    -fx-border-width: 0;
+}
+
+.header-section {
+    -fx-border-color: color-primary-light;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 10 10;
+    -fx-spacing: 10;
+    -fx-alignment: center-left;
+}
+
+.header-section > Text {
+    -fx-font-size: 18px;
+    -fx-padding: 10 0;
+}
+
+.header-section.header-large {
+    -fx-padding: 20 10;
+}
+
+.header-section.header-large > Text {
+    -fx-font-size: 22px;
+}
+
+.subheader-section {
+    -fx-padding: 10 10;
+}
+
+.subheader-section > Text {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.button-bar {
+    -fx-border-color: color-primary-light;
+    -fx-border-width: 1 0 0 0;
+    -fx-alignment: center-right;
+    -fx-font-size: 12px;
+    -fx-spacing: 10;
+    -fx-padding: 15 10;
+}
+
+.button-bar.button-bar-alt {
+    -fx-alignment: center-left;
+}
+
+/**************************************
+******* BASE LAYOUT *******************
+***************************************/
+
+#topBar {
+    -fx-background-color: white;
+    -fx-text-fill: color-font-primary;
+    -fx-font-size: 16px;
+    -fx-padding: 12;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 2, 0, 0, 4);
+}
+
+#topBar HBox {
+    -fx-alignment: CENTER;
+}
+
+#topBar #userName {
+    -fx-fill: color-primary;
+    -fx-padding: 0 18 0 18;
+}
+
+#topBar #leftTopBar {
+    -fx-alignment: center-left;
+}
+
+#search {
+    -fx-background-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-border-width: 0;
+}
+
+#searchIcon {
+    -fx-opacity: 0.4;
+}
+
+.logo {
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-padding: 24 24 24 24;
+}
+
+.logo .logo-text {
+    -fx-padding: 0 10;
+    -fx-font-size: 20px;
+    -fx-font-weight: 600;
+    -fx-fill: color-font-primary-light;
+    -fx-text-fill: color-font-primary-light;
+}
+
+/**************************************
+******* SIDEBAR ***********************
+***************************************/
+#sidebar {
+    -fx-background-color: color-primary;
+    -fx-alignment: top-left;
+}
+
+#sidebar .menuItem {
+    -fx-border-width: 0;
+    -fx-alignment: center-left;
+    -fx-padding: 10 14 10 14;
+    -fx-background-color: color-primary;
+    -fx-text-fill: derive(color-font-primary-light, -20%);
+    -fx-font-family: "Segoe UI";
+    -fx-font-weight: bold;
+}
+
+#sidebar .menuItem:hover,
+#sidebar .menuItem.selected {
+    -fx-background-color: derive(color-primary, -20%);
+    -fx-text-fill: color-font-primary-light;
+}
+
+#sidebar .menuItem.selected {
+    -fx-border-width: 0 0 0 3;
+    -fx-border-color: color-accent;
+    -fx-border-radius: 0;
+}
+
+/**************************************
+******* LOGIN PAGE ********************
+***************************************/
+.errorText {
+    -fx-text-fill: red !important;
+    -fx-fill: red;
+}
+
+/**************************************
+******* LISTS *******************
+***************************************/
+/*Scrollpane*/
+.list {
+    -fx-border-color: color-primary-light;
+    -fx-border-width: 1 0 0 0;
+    -fx-border-insets: 0 10;
+}
+
+/*VBox*/
+.list-view {
+    -fx-border-width: 0;
+}
+
+.list-item {
+    -fx-padding: 10 20;
+    -fx-border-color: color-primary-light;
+    -fx-border-width: 0 0 1 0;
+}
+
+.list-item:hover {
+    -fx-background-color: color-grey;
+}
+
+
+.bill-grid Label {
+    -fx-padding: 0 5;
+}
+
+/**************************************
+******* BOOKING ***********************
+***************************************/
+#addRepairItemSection {
+    -fx-padding: 10;
+    -fx-spacing: 5;
+}
+
+#addRepairItemSection .radio-button {
+    -fx-padding: 0 10 0 0;
+}
+
+
+/**************************************
+******* CALENDAR **********************
+***************************************/
+.calendarControls {
+    -fx-padding: 10;
+}
+
+/* Calendar header */
+.calendar .header {
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: color-primary-light;
+}
+
+.calendar .header-cell {
+    -fx-text-alignment: center;
+    -fx-font-family: "Segoe UI";
+    -fx-alignment: center;
+    -fx-padding: 10 0 4 0;
+}
+.calendar .header-cell .header-title {
+    -fx-font-weight: bold;
+}
+
+/* Calendar styles */
+.calendar .week-pane .day,
+.calendar .day-pane .day{
+    -fx-border-width: 0 0 0 2;
+    -fx-border-color: derive(color-primary-light, 20%);
+    -fx-background-insets: 2;
+}
+
+.calendar .week-pane .day .current,
+.calendar .day-pane .day .current{
+    -fx-fill: rgba(226, 113, 126, 0.5);
+}
+
+.calendar .week-pane .day .inactive,
+.calendar .day-pane .day .inactive{
+    -fx-fill: rgba(106, 133, 166, 0.3);
+}
+
+.calendar .month-pane .day {
+    -fx-padding: 5;
+}
+
+.calendar .month-pane .day .day-number {
+    -fx-font-size: 1.5em;
+}
+
+.calendar .month-pane .day.current .day-number {
+    -fx-text-fill: #ca6454;
+ }
+
+.calendar .month-pane .day.inactive {
+    -fx-background-color: rgba(106, 133, 166, 0.3);
+}
+
+/* Calendar Select area styles */
+.calendar .select-area {
+     -fx-fill: rgba(0, 0, 0, 0.3);
+ }
+
+.calendar .select-area.dragging {
+    -fx-fill: rgba(0, 0, 0, 0.2);
+}
+
+/* Calendar Booking styles */
+.calendar .booking {
+    -fx-border-width: 1 1 1 4;
+}
+
+.calendar .booking.selected {
+    /*-fx-background-color: rgba(48, 242, 58, 0.6);*/
+    -fx-effect: dropshadow(three-pass-box, color-accent, 10, 0, 0, 0);
+}
+
+.calendar .booking .scroll-bar,
+.calendar .booking .corner {
+    -fx-background-color: transparent;
+}
+
+.calendar .booking .scroll-bar:horizontal .track,
+.calendar .booking .scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-padding: 2;
+}
+
+.calendar .booking .increment-button,
+.calendar .booking .decrement-button {
+    -fx-background-color:transparent;
+}
+
+.calendar .booking .scroll-bar:horizontal .thumb,
+.calendar .booking .scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+    -fx-background-insets: 2, 0, 0;
+    -fx-background-radius: 2em;
+    -fx-padding: 2;
+}
+
+.calendar .booking .scroll-bar:horizontal .thumb:hover,
+.calendar .booking .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Calendar Time Line styles */
+.calendar .time-line .hourLine,
+.calendar .time-line .hourHalfLine {
+    -fx-stroke: derive(color-primary-light, -5%);
+    -fx-stroke-width: 1;
+}
+
+.calendar .time-line .hourHalfLine {
+    /*-fx-stroke-dash-array: 5 10;*/
+    -fx-stroke: derive(color-primary-light, 5%);
+}
+
+.calendar .time-line .hourText {
+    -fx-font-size: 10px;
+    -fx-text-fill: derive(color-font-primary, 40%);
+}
+
+.calendar .time-line .month-pane {
+
+}

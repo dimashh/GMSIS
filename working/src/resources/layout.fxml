@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<BorderPane fx:id="mainLayout" prefHeight="720.0" minHeight="720.0" prefWidth="1200.0" minWidth="1200.0" fx:controller="gmsis.LayoutController"
+            xmlns:fx="http://javafx.com/fxml">
+    <left>
+        <VBox fx:id="sidebar">
+            <HBox styleClass="logo">
+                <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
+                    <Image url="@images/logo.png" />
+                </ImageView>
+                <Text styleClass="logo-text">GM-SIS</Text>
+            </HBox>
+
+        </VBox>
+    </left>
+    <center>
+        <BorderPane fx:id="innerMainLayout">
+            <top>
+                <AnchorPane fx:id="topBar" BorderPane.alignment="CENTER">
+                    <HBox fx:id="leftTopBar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <MaterialIconView glyphName="SEARCH" size="24px" glyphStyle="-fx-fill: black" />
+                        <TextField fx:id="search" promptText="Search for a customer, vehicle or booking" />
+                    </HBox>
+                    <HBox spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Text fx:id="userName"></Text>
+                        <Button fx:id="adminButton" styleClass="button-primary, button-large, button-rounded" onAction="#onAdminButton" mnemonicParsing="false" text="Admin">
+                            <graphic>
+                                <MaterialIconView glyphName="PEOPLE" size="24px" glyphStyle="-fx-fill: white" />
+                            </graphic>
+                        </Button>
+                        <Button fx:id="logoutButton" styleClass="button-danger, button-large, button-rounded" onAction="#onLogoutButton" mnemonicParsing="false" text="Log Out">
+                            <graphic>
+                                <MaterialIconView glyphName="EXIT_TO_APP" size="24px" glyphStyle="-fx-fill: white" />
+                            </graphic>
+                        </Button>
+                    </HBox>
+                </AnchorPane>
+            </top>
+        </BorderPane>
+    </center>
+</BorderPane>

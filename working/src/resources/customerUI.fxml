@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+<BorderPane fx:id="type" prefHeight="722.0" prefWidth="813.0" xmlns="http://javafx.com/javafx/8.0.111"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="gmsis.customers.CustomerController">
+
+    <top>
+        <HBox styleClass="header-section" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+            <Text fx:id="title" text="Customers"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="10">
+            <HBox spacing="5">
+                <padding>
+                    <Insets top="10"/>
+                </padding>
+                <Label text="Quick Search" alignment="CENTER">
+                    <padding>
+                        <Insets top="5"/>
+                    </padding>
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                    <effect>
+                        <Glow/>
+                    </effect>
+                </Label>
+                <TextField fx:id="quickSearchName" prefWidth="204.0"/>
+            </HBox>
+
+            <TableView fx:id="customerTable" editable="true" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="nameT" prefWidth="102.0" text="Name"/>
+                    <TableColumn fx:id="surnameT" prefWidth="79.0" text="Surname"/>
+                    <TableColumn prefWidth="164.0" text="Full Address">
+                        <columns>
+                            <TableColumn fx:id="addressT" prefWidth="75.0" text="Address"/>
+                            <TableColumn fx:id="townT" prefWidth="57.0" text="Town"/>
+                            <TableColumn fx:id="countyT" prefWidth="75.0" text="County"/>
+                            <TableColumn fx:id="pcodeT" prefWidth="70.0" text="Postcode"/>
+                        </columns>
+                    </TableColumn>
+
+                    <TableColumn fx:id="phoneT" prefWidth="103.0" text="Phone"/>
+                    <TableColumn fx:id="typeT" prefWidth="90.0" text="Type"/>
+                    <TableColumn fx:id="mailT" prefWidth="114.0" text="Email"/>
+
+                </columns>
+            </TableView>
+
+            <HBox styleClass="button-bar, last" BorderPane.alignment="CENTER" HBox.hgrow="ALWAYS">
+                <Button layoutX="39.0" layoutY="346.0" mnemonicParsing="false" onAction="#editCustomer"
+                        prefHeight="26.0" prefWidth="194.0" styleClass="button-primary" text="Save Changes"/>
+                <Button layoutX="244.0" layoutY="346.0" mnemonicParsing="false" onAction="#deleteCustomer"
+                        prefHeight="26.0" prefWidth="173.0" styleClass="button-danger" text="Delete Customer"/>
+                <Button layoutX="39.0" layoutY="381.0" mnemonicParsing="false" onAction="#addCustomer" prefHeight="26.0"
+                        prefWidth="194.0" text="Add Customer"/>
+                <Button layoutX="425.0" layoutY="346.0" mnemonicParsing="false" onAction="#seeBookings"
+                        prefHeight="26.0" prefWidth="161.0" text="Edit Bookings"/>
+                <Button layoutX="600.0" layoutY="346.0" mnemonicParsing="false" onAction="#seeVehicles"
+                        prefHeight="26.0" prefWidth="187.0" text="Edit Vehicles"/>
+                <Button onAction="#viewBills" fx:id="viewBillss" layoutX="244.0" layoutY="381.0" mnemonicParsing="false"
+                        prefHeight="26.0" prefWidth="173.0" text="View Bills"/>
+            </HBox>
+
+
+        </VBox>
+    </center>
+
+</BorderPane>

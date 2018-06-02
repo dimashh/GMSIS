@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="gmsis.customers.BillViewController">
+    <top>
+        <HBox styleClass="header-section" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+            <Button fx:id="backButton" onAction="#onBack" mnemonicParsing="false" styleClass="button-square"
+                    text="Back"/>
+            <Text fx:id="title" text="Bills for Roger Brown"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox>
+            <TableView fx:id="billView" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="status" prefWidth="138.0" text="Status"/>
+                    <TableColumn fx:id="billDate" prefWidth="125.0" text="Bill Date"/>
+                    <TableColumn fx:id="paidDate" prefWidth="148.0" text="Paid Date"/>
+                    <TableColumn fx:id="amount" prefWidth="207.0" text="Amount"/>
+                </columns>
+            </TableView>
+            <HBox styleClass="button-bar, last" BorderPane.alignment="CENTER" HBox.hgrow="ALWAYS">
+                <Button layoutX="46.0" layoutY="368.0" mnemonicParsing="false" onAction="#settleBill"
+                        styleClass="button-primary" text="Settle Bill"/>
+                <Button layoutX="135.0" layoutY="368.0" mnemonicParsing="false" onAction="#extraInfo" text="See Details"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

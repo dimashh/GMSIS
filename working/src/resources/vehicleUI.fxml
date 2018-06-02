@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.text.Text?>
+<BorderPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="gmsis.vehicles.VehicleController">
+    <top>
+        <HBox styleClass="header-section" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+            <Text fx:id="title" text="Vehicles"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox>
+            <ListView fx:id="vehicleListView" VBox.vgrow="ALWAYS" />
+            <Label alignment="CENTER" prefHeight="28.0" prefWidth="185.0"
+                   text="Vehicle Information">
+                <font>
+                    <Font name="System Bold" size="24.0"/>
+                </font>
+            </Label>
+            <TableView fx:id="vehicleInfo" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="vehicleCustomer" prefWidth="165.0" text="Customer Name"/>
+                    <TableColumn fx:id="futBooking" prefWidth="269.0" text="Next Booking Date"/>
+                    <TableColumn fx:id="totalCost" minWidth="0.0" prefWidth="210.0" text="Cost"/>
+                </columns>
+            </TableView>
+            <HBox styleClass="button-bar, last" BorderPane.alignment="CENTER" HBox.hgrow="ALWAYS">
+                <Button fx:id="addButton" layoutX="149.0" layoutY="535.0" mnemonicParsing="false" onAction="#addVehicle"
+                        styleClass="button-primary" text="Add"/>
+                <Button layoutX="215.0" layoutY="535.0" mnemonicParsing="false" onAction="#deleteVehicle"
+                        styleClass="button-danger" text="Delete"/>
+                <Button layoutX="302.0" layoutY="535.0" mnemonicParsing="false" onAction="#editVehicle"
+                        text="Edit Vehicle"/>
+                <Button layoutX="418.0" layoutY="535.0" mnemonicParsing="false" onAction="#goBooking"
+                        text="Edit vehicle booking"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

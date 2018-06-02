@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.control.ScrollPane?>
+<BorderPane xmlns="http://javafx.com/javafx/8.0.51" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gmsis.SearchController">
+    <top>
+        <HBox styleClass="header-section" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Text fx:id="title" text="Bookings for Roger Brown" />
+        </HBox>
+    </top>
+    <center>
+        <ScrollPane fx:id="resultsScrollPane" hbarPolicy="NEVER" >
+            <VBox fx:id="results" styleClass="dividers" />
+        </ScrollPane>
+    </center>
+</BorderPane>

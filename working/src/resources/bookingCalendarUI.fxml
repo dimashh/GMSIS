@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import org.controlsfx.control.SegmentedButton?>
+<BorderPane xmlns="http://javafx.com/javafx/8.0.51" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="gmsis.diagrep.CalendarController">
+    <top>
+        <BorderPane styleClass="calendarControls" BorderPane.alignment="CENTER">
+            <left>
+                <HBox spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <SegmentedButton toggleGroup="$calendarViewToggle">
+                        <buttons>
+                            <fx:define>
+                                <ToggleGroup fx:id="calendarViewToggle"/>
+                            </fx:define>
+                            <ToggleButton fx:id="dayButton" toggleGroup="$calendarViewToggle" mnemonicParsing="false" text="Day"/>
+                            <ToggleButton fx:id="weekButton" toggleGroup="$calendarViewToggle" mnemonicParsing="false" text="Week"/>
+                            <ToggleButton fx:id="monthButton" toggleGroup="$calendarViewToggle" mnemonicParsing="false" text="Month"/>
+                        </buttons>
+                    </SegmentedButton>
+                </HBox>
+            </left>
+            <center>
+                <HBox styleClass="center" spacing="5.0">
+                    <Button fx:id="previousButton" onAction="#onPrevious" mnemonicParsing="false" text="Previous"/>
+                    <Label fx:id="currentLabel"></Label>
+                    <Button fx:id="nextButton" onAction="#onNext" mnemonicParsing="false" text="Next"/>
+                </HBox>
+            </center>
+            <right>
+                <HBox spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <Label fx:id="mechanicLabel" text="Mechanic" alignment="BASELINE_RIGHT" />
+                    <ChoiceBox fx:id="mechanicChoiceBox"/>
+                    <Button fx:id="viewBookingButton" onAction="#onViewBooking" mnemonicParsing="false" text="View Booking"/>
+                    <Button onAction="#onNewBooking" mnemonicParsing="false" text="New Booking"/>
+                </HBox>
+            </right>
+        </BorderPane>
+    </top>
+    <center>
+        <HBox>
+            <BorderPane styleClass="calendar" fx:id="calendarBorderPane" HBox.hgrow="ALWAYS">
+            </BorderPane>
+        </HBox>
+    </center>
+</BorderPane>
